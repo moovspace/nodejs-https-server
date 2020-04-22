@@ -88,8 +88,8 @@ app.use(cors());
 
 // Enable https
 // var ca = fs.readFileSync("../.ssh/ca.pem", "utf8");
-var privateKey = fs.readFileSync('../.ssh/key.pem', 'utf8');
-var certificate = fs.readFileSync('../.ssh/cert.pem', 'utf8');
+var privateKey = fs.readFileSync('./.ssh/key.pem', 'utf8');
+var certificate = fs.readFileSync('./.ssh/cert.pem', 'utf8');
 var pass_phrase = '';
 
 var credentials = {
