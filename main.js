@@ -21,7 +21,8 @@ cd app
 
 # Packages
 npm init
-npm install express express-fileupload body-parser mysql mongoose ejs req-flash cors --save
+npm install express express-fileupload body-parser cookie-parser mysql cors serve-favicon morgan multer --save
+npm install mongoose ejs req-flash --save
 npm install nodemon -g
 
 # Database
@@ -56,6 +57,12 @@ http://expressjs.com/en/4x/api.html#app.listen
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 https://dev.to/achowba/build-a-simple-app-using-node-js-and-mysql-19me
 https://stackoverflow.com/questions/38112643/how-to-use-routes-from-express-for-https
+# upload
+https://www.npmjs.com/package/express-fileupload
+https://www.w3schools.com/nodejs/nodejs_uploadfiles.asp
+https://bezkoder.com/node-js-upload-multiple-files
+https://blog.eduonix.com/web-programming-tutorials/learn-build-upload-multiple-files-using-nodejs
+https://github.com/burib/nodejs-multiple-file-upload-example
 # sql injection
 https://www.veracode.com/blog/secure-development/how-prevent-sql-injection-nodejs
 https://fsgeek.pl/post/node-mysql
@@ -76,22 +83,42 @@ var config          = require('./config');
 var bodyParser      = require('body-parser');
 var mysql           = require('mysql');
 var cors            = require('cors');
+// var favicon         = require('serve-favicon');
 // var fileUpload      = require('express-fileupload');
 // var path            = require('path');
 // var mongoose        = require('mongoose');
+// var logger          = require('morgan');
+// var cookieParser    = require('cookie-parser');
+
+// Multer upload
+// var multer          = require('multer');
+// var upload          = multer({ dest: 'uploads/' });
+
+// Configure the CORS rights
+app.use(cors());
 
 // Configure app to use bodyParser()
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // Parse form data client
 
-// Configure the CORS rights
-app.use(cors());
-
-// Configure template engine
-// app.set('view engine', 'ejs');
+// Configure express upload
+// app.use(express.bodyParser({ keepExtensions: true, uploadDir: __dirname + '/_tmp' })); // required for accessing req.files object
 
 // Configure express to use public folder
 // app.use(express.static(path.join(__dirname, 'public')));
+
+// Set favicon in /public
+// app.use(favicon(path.join(__dirname, 'public', 'favicon/favicon.ico')));
+
+// Logger morgan
+// app.use(logger('dev'));
+
+// Cookie parser
+// app.use(cookieParser());
+
+// Configure template engine
+// app.set('view engine', 'ejs');
+// app.set("views",path.join(__dirname, "views"))
 
 // Enable https
 var privateKey = fs.readFileSync('../.ssh/key.pem', 'utf8');

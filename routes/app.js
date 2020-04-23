@@ -26,6 +26,14 @@ router.get('/contact', function (req, res) {
 	res.send('Contact page');
 });
 
+// Upload file: <input name="image[]" type="file" multiple />
+router.post('/upload', function(req, res) {
+	console.log(req.files.image); // the uploaded file object
+	// Get uploaded file/files
+	let uploadedFiles = req.files.image;
+	res.send('Uploaded file: ' + JASON.stringify(uploadedFiles));
+});
+
 // Load routes module
 const {getPlayers} = require('./index');
 router.get('/players', getPlayers);

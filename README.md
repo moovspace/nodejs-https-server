@@ -30,10 +30,10 @@ mkdir app
 cd app
 ```
 
-## Add packages
+## Add required
 ```
 npm init
-npm install express express-fileupload body-parser mysql cors --save
+npm install express express-fileupload body-parser cookie-parser mysql cors serve-favicon morgan multer --save
 ```
 
 ## Optional
@@ -81,6 +81,12 @@ http://expressjs.com/en/4x/api.html#app.listen
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 https://dev.to/achowba/build-a-simple-app-using-node-js-and-mysql-19me
 https://stackoverflow.com/questions/38112643/how-to-use-routes-from-express-for-https
+# upload
+https://www.npmjs.com/package/express-fileupload
+https://www.w3schools.com/nodejs/nodejs_uploadfiles.asp
+https://bezkoder.com/node-js-upload-multiple-files
+https://blog.eduonix.com/web-programming-tutorials/learn-build-upload-multiple-files-using-nodejs
+https://github.com/burib/nodejs-multiple-file-upload-example
 # sql injection
 https://www.veracode.com/blog/secure-development/how-prevent-sql-injection-nodejs
 https://fsgeek.pl/post/node-mysql
