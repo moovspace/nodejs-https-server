@@ -31,12 +31,12 @@ const {getPlayers} = require('./index');
 router.get('/players', getPlayers);
 
 // Load players routes
-const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./player');
-router.get('/add', addPlayerPage);
-router.get('/edit/:id', editPlayerPage);
-router.get('/delete/:id', deletePlayer);
-router.post('/add', addPlayer);
-router.post('/edit/:id', editPlayer);
+// const {addPlayerPage, addPlayer, deletePlayer, editPlayer, editPlayerPage} = require('./player');
+// router.get('/add', addPlayerPage);
+// router.get('/edit/:id', editPlayerPage);
+// router.get('/delete/:id', deletePlayer);
+// router.post('/add', addPlayer);
+// router.post('/edit/:id', editPlayer);
 
 // Export
 module.exports = router;
