@@ -11,7 +11,7 @@ module.exports = {
 	        res.send('Players list here ' + JSON.stringify(result));
 /*
             res.render('index.ejs', {
-                title: Welcome to Socka | View Players
+                title: View Players
                 ,players: result
             });
 */
