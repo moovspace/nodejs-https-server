@@ -64,18 +64,21 @@ https://github.com/mysqljs/mysql#escaping-query-values
 https://www.xolphin.com/support/Certificate_conversions/Convert_pfx_file_to_pem_file
 */
 
+// App
 var fs              = require('fs');
 var http            = require('http');
 var https           = require('https');
-var express         = require('express');       // call express
-var app             = express();                // define our app using express
-var mysql           = require('mysql');
-var bodyParser      = require('body-parser');
-var cors            = require('cors');
+var express         = require('express');
+var app             = express();
+
+// Addons
 var config          = require('./config');
-// const path       = require('path');
-// var fileUpload   = require('express-fileupload');
-// var mongoose     = require('mongoose');
+var bodyParser      = require('body-parser');
+var mysql           = require('mysql');
+var cors            = require('cors');
+// var fileUpload      = require('express-fileupload');
+// var path            = require('path');
+// var mongoose        = require('mongoose');
 
 // Configure app to use bodyParser()
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -83,6 +86,12 @@ app.use(bodyParser.json()); // Parse form data client
 
 // Configure the CORS rights
 app.use(cors());
+
+// Configure template engine
+// app.set('view engine', 'ejs');
+
+// Configure express to use public folder
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Enable https
 var privateKey = fs.readFileSync('../.ssh/key.pem', 'utf8');
@@ -118,7 +127,7 @@ const db = mysql.createConnection ({
 
 db.connect((err) => {
 	if (err) {
-			throw err;
+		throw err;
 	}
 	console.log('Connected to database');
 });
@@ -139,13 +148,13 @@ var app_routes = require('./routes/app.js');
 app.use('/', app_routes);
 
 // Sample route
-// router.route('/waitlist/join').post(waitlistCtrl.joinWaitlist);
-// app.use('/api', router);
-
-// Sample route
 // router.get('/contact', function (req, res) {
 //   res.send('Contact page');
 // });
+
+// Sample route
+// router.route('/waitlist/join').post(waitlistCtrl.joinWaitlist);
+// app.use('/api', router);
 
 // Http
 httpServer.listen(port_http, () => {

@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+// Require template engin ejs (only sample)!
 module.exports = {
     addPlayerPage: (req, res) => {
         // res.send('Welcome');

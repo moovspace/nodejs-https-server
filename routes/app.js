@@ -23,7 +23,7 @@ router.get('/users/:userId/books/:bookId', function (req, res) {
 
 // Route
 router.get('/contact', function (req, res) {
-  res.send('Contact page');
+	res.send('Contact page');
 });
 
 // Load routes module
